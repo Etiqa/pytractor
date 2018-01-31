@@ -1,6 +1,9 @@
+# THIS FILE HAS BEEN MODIFIED BY ETIQA S.R.L.
+
 *.pyc
 *~
 # Eclipse - Pydev
 .project
 .pydevproject
 .settings
+.idea

@@ -1,3 +1,11 @@
+===========================================
+THIS FILE HAS BEEN MODIFIED BY ETIQA S.R.L.
+===========================================
+This is an obsolete and no longer maintained fork of Pytractor.
+
+The only relevant change is in WebDriverMixin.get()
+
+
 =========
 pytractor
 =========

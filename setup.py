@@ -1,6 +1,10 @@
 #!/usr/bin/env python
 # -*- coding: UTF-8 -*-
 
+
+# THIS FILE HAS BEEN MODIFIED BY ETIQA S.R.L.
+
+
 # Copyright 2014 Konrad Podloucky
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -30,17 +34,17 @@ with open(path.join(here, 'DESCRIPTION.rst'), encoding='utf-8') as f:
     long_description = f.read()
 
 setup(
-    name='pytractor',
+    name='etiqa-pytractor',
 
-    version='0.2.1',
+    version='0.2.1.1',
 
-    description='Selenium testing for Angular.js apps',
+    description='Pytractor fork (obsolete and no longer maintained) by Etiqa s.r.l.',
     long_description=long_description,
 
     url='https://github.com/kpodl/pytractor',
 
-    author='Konrad Podloucky',
-    author_email='konrad+pytractor@crunchy-frog.org',
+    author='Etiqa s.r.l.',
+    author_email='fabio@etiqa.it',
 
     license='Apache 2.0',
 
@@ -66,13 +70,13 @@ setup(
     include_package_data=True,
 
     install_requires=[
-        'selenium>=2.48.0',
-        'future>=0.15.2'
+        'selenium>=3.6.0',
+        'future>=0.16.0'
     ],
 
     tests_require=[
         'nose>=1.3.7',
-        'mock>=1.3.0',
+        'mock>=2.0.0',
     ],
     test_suite='nose.collector',
     use_2to3=True

@@ -1,3 +1,6 @@
+# THIS FILE HAS BEEN MODIFIED BY ETIQA S.R.L.
+
+
 # Copyright 2014 Konrad Podloucky, Michal Walkowski
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -23,6 +26,7 @@ from future.moves.urllib.parse import urljoin
 from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.remote.command import Command
 from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
 from pkg_resources import resource_string
 
@@ -201,6 +205,8 @@ class WebDriverMixin(object):
 
     def get(self, url):
         super(WebDriverMixin, self).get('about:blank')
+        wait = WebDriverWait(self, self._test_timeout)
+        wait.until(EC.url_to_be('about:blank'))
         full_url = urljoin(str(self._base_url), str(url))
         self.execute_script(
             """
@@ -208,8 +214,7 @@ class WebDriverMixin(object):
             window.location.replace("{}");
             """.format(DEFER_LABEL, full_url)
         )
-        wait = WebDriverWait(self, self._test_timeout)
-        wait.until_not(self._location_equals, 'about:blank')
+        wait.until(EC.url_changes('about:blank'))
 
         if not self.ignore_synchronization:
             test_result = self._test_for_angular()
